@@ -54,10 +54,6 @@ function App() {
     }
   }, [isOn])
 
-  if (!isOn) {
-    return <div />
-  }
-
   const renderText = (style, text) => (
     <p
       style={{
@@ -76,6 +72,32 @@ function App() {
 
   return (
     <>
+      {!isOn && (
+        <div
+          style={{
+            position: 'fixed',
+            background: 'black',
+            opacity: 1,
+            top: 0,
+            left: 0,
+            zIndex: 10000,
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <h3
+            style={{
+              color: 'white',
+              fontFamily: 'Arial',
+            }}
+          >
+            Exibition Closed
+          </h3>
+        </div>
+      )}
       {phase === 1 && (
         <>
           {renderText(
